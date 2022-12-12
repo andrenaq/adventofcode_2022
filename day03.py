@@ -1,4 +1,4 @@
-# https://adventofcode.com/2022/day/2
+# https://adventofcode.com/2022/day/3
 import csv
 
 
@@ -9,12 +9,18 @@ def point(c):
         return (ord(c) - 38)
 
 
-rucksacks = []
-with open('day03_input.csv') as csvfile:
+base = []
+
+with open('input_files/day03_input.csv') as csvfile:
     csvReader = csv.reader(csvfile, delimiter='\n')
     for row in csvReader:
-        middle = int(len(row[0]) / 2)
-        rucksacks.append([row[0][:middle], row[0][middle:]])
+        base.append(row[0])
+
+rucksacks = []
+for i in base:
+    middle = int(len(i) / 2)
+    rucksacks.append([i[:middle], i[middle:]])
+
 wrong_items = {}
 
 for rucksack in rucksacks:
@@ -39,13 +45,7 @@ print("Total part 1: ", sum(total))
 
 
 # Part 2
-rucksacks = []
-with open('day03_input.csv') as csvfile:
-    csvReader = csv.reader(csvfile, delimiter='\n')
-    for row in csvReader:
-        middle = int(len(row[0]) / 2)
-        rucksacks.append(row[0])
-
+rucksacks = base
 
 badges = {}
 for i in range(0, len(rucksacks), 3):
