@@ -11,7 +11,7 @@ def point(c):
 
 base = []
 
-with open('input_files/day03_input.csv') as csvfile:
+with open('adventofcode_2022/input_files/day03_input.csv') as csvfile:
     csvReader = csv.reader(csvfile, delimiter='\n')
     for row in csvReader:
         base.append(row[0])

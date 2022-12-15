@@ -4,7 +4,7 @@ import csv
 elf, partial = 0, 0
 elfs, list_of_values = [], []
 
-with open('input_files/day01_imput.csv') as csvfile:
+with open('adventofcode_2022/input_files/day01_imput.csv') as csvfile:
     csvReader = csv.reader(csvfile, delimiter='\n')
     for row in csvReader:
         list_of_values.append(row)
