@@ -1,6 +1,6 @@
 # https://adventofcode.com/2022/day/3
 import csv
-
+import copy
 # PARSING THE DAATA =========================================================
 base, instructions = [], []
 with open('adventofcode_2022/input_files/day05_input.csv') as csvfile:
@@ -18,13 +18,12 @@ with open('adventofcode_2022/input_files/day05_input.csv') as csvfile:
                 base.insert(0, k)
 base.pop(0)
 crates_part1 = []
-crates_part2 = []
 for i in range(len(base[0])):
     crates_part1.append([])
     for k in range(len(base)):
         if base[k][i] != "#":
             crates_part1[i].append(base[k][i])
-crates_part2 = crates_part1[:]
+crates_part2 = copy.deepcopy(crates_part1)
 # END OF # PARSING  =========================================================
 
 
