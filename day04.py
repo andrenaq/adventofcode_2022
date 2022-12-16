@@ -14,53 +14,32 @@ base = []
 with open('adventofcode_2022/input_files/day04_input.csv') as csvfile:
     csvReader = csv.reader(csvfile, delimiter=',')
     for row in csvReader:
-        base.append(row[0])
-print(base)
-# rucksacks = []
-# for i in base:
-#     middle = int(len(i) / 2)
-#     rucksacks.append([i[:middle], i[middle:]])
+        first_elf = [int(section) for section in row[0].split("-")]
+        second_elf = [int(section) for section in row[1].split("-")]
+        base.append([first_elf, second_elf])
 
-# wrong_items = {}
+# Part 1
+total = 0
+list_of_results = []
+for i in base:
+    if ((i[0][0] <= i[1][0] and i[0][1] >= i[1][1])
+       or (i[1][0] <= i[0][0] and i[1][1] >= i[0][1])):
+        total += 1
+        # list_of_results.append(i)
 
-# for rucksack in rucksacks:
-#     all_items = {}
-#     for i in range(len(rucksack[0])):
-#         if rucksack[0][i] not in all_items:
-#             all_items[rucksack[0][i]] = i
+print("Fully contained pairs: ", total)
+# print("List of fully contained pairs: ", list_of_results)
 
-#     for k in rucksack[1]:
-#         if k in all_items:          
-#             if k in wrong_items:
-#                 wrong_items[k] += 1
-#             else:  
-#                 wrong_items[k] = 1
-#             break
-# total = []
-# for i in wrong_items.keys():
-#     total.append(point(i) * wrong_items[i])
+# Part 2
+total2 = 0
+# list_of_results = []
+for i in base:
+    if ((i[0][0] >= i[1][0] and i[0][0] <= i[1][1])
+       or (i[0][1] >= i[1][0] and i[0][1] <= i[1][1])) \
+     or ((i[0][0] <= i[1][0] and i[0][1] >= i[1][0])
+       or (i[0][0] <= i[1][1] and i[0][1] >= i[1][1])):
+        total2 += 1
+        # list_of_results.append(i)
 
-# # Part 1
-# print("Total part 1: ", sum(total))
-
-
-# # Part 2
-# rucksacks = base
-
-# badges = {}
-# for i in range(0, len(rucksacks), 3):
-#     dict_01 = dict.fromkeys(list(rucksacks[i]), 1)
-#     dict_02 = dict.fromkeys(list(rucksacks[i+1]), 1)
-#     for k in list(rucksacks[i+2]):
-#         if (k in dict_01) and (k in dict_02):
-#             if k in badges:
-#                 badges[k] += 1
-#             else:  
-#                 badges[k] = 1
-#             break
-
-# total_2 = []
-# for i in badges.keys():
-#     total_2.append(point(i) * badges[i])
-
-# print("Total part 2: ", sum(total_2))
+print("Overlap pairs: ", total2)
+# print("List of overlap pairs: ", list_of_results)
