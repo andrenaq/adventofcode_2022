@@ -3,7 +3,7 @@ import csv
 
 list_of_values = []
 
-with open('adventofcode_2022/input_files/day02_input.csv') as csvfile:
+with open('input_files/day02_input.csv') as csvfile:
     csvReader = csv.reader(csvfile, delimiter='\n')
     for row in csvReader:
         list_of_values.append(row[0].split())

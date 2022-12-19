@@ -3,7 +3,7 @@ import csv
 import copy
 # PARSING THE DAATA =========================================================
 base, instructions = [], []
-with open('adventofcode_2022/input_files/day05_input.csv') as csvfile:
+with open('input_files/day05_input.csv') as csvfile:
     csvReader = csv.reader(csvfile, delimiter=',')
     for row in csvReader:
         if len(row) > 0:

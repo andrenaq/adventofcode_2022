@@ -2,7 +2,7 @@
 import csv
 
 message = ""
-with open('adventofcode_2022/input_files/day06_input.csv') as csvfile:
+with open('input_files/day06_input.csv') as csvfile:
     csvReader = csv.reader(csvfile, delimiter=',')
     for row in csvReader:
         message = row[0]
