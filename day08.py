@@ -52,9 +52,10 @@ for i in range(1, len(vertical)-1):
             if vertical[k][down] >= vertical[k][i]:
                 break
             down += 1
-        
-        view_total = max(view_total,
-          left_total * right_total * up_total * down_total)
+
+        view_total = max(
+            view_total,
+            left_total * right_total * up_total * down_total)
 
 print("Part 1: ", total)
 print("Part 2: ", view_total)
